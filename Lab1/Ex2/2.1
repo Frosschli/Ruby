@@ -1,0 +1,23 @@
+def nod(a, b)
+while b != 0
+a, b = b, a % b
+ end
+  a
+end
+
+def chisl_prost(a,b)
+  nod(a,b)==1
+ end
+
+def count_prost_chisl(number)
+count = 0
+(2..number).each do |i|
+if chisl_prost(number,i)
+count += 1
+  end
+ end
+count
+end
+
+number = gets.to_i
+puts count_prost_chisl(number)
