@@ -1,0 +1,14 @@
+def sum_div_3(number)
+sum = 0
+ while number > 0
+digit = number % 10
+ if digit % 3 == 0
+sum += digit
+  end
+number = number / 10
+ end
+sum
+end
+
+number = gets.to_i
+puts sum_div_3(number)
