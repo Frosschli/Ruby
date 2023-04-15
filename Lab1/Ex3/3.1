@@ -1,0 +1,19 @@
+def min_elem(ar)
+  min=ar[0]
+  for i in ar
+    if i<min then min = i 
+    end
+  end
+  return min
+end
+
+def first_pol(ar)
+  ind = 0
+  while ind<ar.length && ar[ind]<0
+    ind+=1
+  end
+  ind==ar.length ? -1 : ind
+end
+
+ar=[-7,-3,6,2,1,5]
+puts min_elem(ar).to_s + " #{first_pol ar}"
