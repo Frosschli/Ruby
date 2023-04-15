@@ -1,0 +1,44 @@
+def nod(a, b)
+  while b != 0
+    a, b = b, a % b
+  end
+  a
+end
+
+def chisl_prost?(a,b)
+  nod(a,b)==1
+end
+
+def count_prost_chisl(number)
+  count = 0
+  (2..number).each do |i|
+    if chisl_prost?(number,i)
+      count += 1
+    end
+  end
+  count
+end
+def count_vzaim_prost_chisl(divisor, number)
+  count = 0
+  while number > 0
+    digit = number % 10
+    count += 1 if chisl_prost?(divisor, digit)
+    number /= 10
+  end
+  count
+end
+
+def vzaum_prost_del_chisl(number)
+  temp_div_count=0
+  best_div = 0
+  (2...number).each do |i|
+    if number % i == 0 && count_vzaim_prost_chisl(i,number)>temp_div_count
+        temp_div_count=count_vzaim_prost_chisl(i,number)
+        best_div=i
+    end
+  end
+  best_div
+end
+
+number = gets.to_i
+puts vzaum_prost_del_chisl(number)
